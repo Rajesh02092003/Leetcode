@@ -1,0 +1,21 @@
+from typing import List
+def largestNumber(nums: List[int]) -> str:
+  lst=[]
+        
+  for i in nums:
+    lst.append(str(i))
+  n=len(lst)
+
+  for i in range(n):
+    for j in range(i+1,n):
+      if (lst[i]+lst[j])>(lst[j]+lst[i]):
+        continue
+      else:
+        lst[i],lst[j]=lst[j],lst[i]
+  res="".join(lst)
+  if int(res)==0:
+    return "0"
+  return res
+
+num=[10,2]
+print(largestNumber(num))
